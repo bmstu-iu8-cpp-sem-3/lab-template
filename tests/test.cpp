@@ -3,3 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <header.hpp>
+
+TEST(A, B) {
+  EXPECT_TRUE(true);
+}
