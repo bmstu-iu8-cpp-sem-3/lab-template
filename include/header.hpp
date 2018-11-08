@@ -2,5 +2,5 @@
 
 #ifndef INCLUDE_HEADER_HPP_
 #define INCLUDE_HEADER_HPP_
-
+bool ret_true();
 #endif // INCLUDE_HEADER_HPP_
