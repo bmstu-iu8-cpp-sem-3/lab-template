@@ -5,5 +5,5 @@
 #include <header.hpp>
 
 TEST(A, B) {
-  EXPECT_TRUE(true);
+  EXPECT_TRUE(ret_true());
 }
