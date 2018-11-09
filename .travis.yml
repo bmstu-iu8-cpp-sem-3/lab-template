@@ -12,7 +12,15 @@ jobs:
       - docker run  -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap:cpp scripts/checks.sh
     - name: "tests"
       script:
-      - docker run -e TRAVIS_REPO_SLUG=`$TRAVIS_REPO_SLUG` -e TRAVIS_PULL_REQUEST=$(TRAVIS_PULL_REQUEST) -e TRAVIS_BRANCH=$(TRAVIS_BRANCH) -e TRAVIS_COMMIT=$(TRAVIS_COMMIT) -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap:cpp scripts/tests.sh
+      - echo $TRAVIS_REPO_SLUG
+      - echo $TRAVIS_PULL_REQUEST
+      - echo $TRAVIS_BRANCH
+      - echo $TRAVIS_COMMIT
+      - echo TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG > .env
+      - echo TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST >> .env
+      - echo TRAVIS_BRANCH=$TRAVIS_BRANCH >> .env
+      - echo TRAVIS_COMMIT=$TRAVIS_COMMIT >> .env
+      - docker run --env-file .env -v `pwd`:`pwd` -w `pwd` -t rusdevops/bootstrap:cpp scripts/tests.sh
 
 notifications:
     email: false
