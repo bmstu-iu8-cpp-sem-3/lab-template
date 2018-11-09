@@ -10,7 +10,7 @@ SLUG=$TRAVIS_REPO_SLUG
 PR=$TRAVIS_PULL_REQUEST
 HEAD_BRANCH=$TRAVIS_BRANCH
 HEAD_SHA=$TRAVIS_COMMIT
-POST_DATA="{\"report\": \"$REPORT_DATA\", \"slug\": \"$SLUG\", \"pull_request\": \"$PR\", \"head_branch\": \"$HEAD_BRANCH\", \"head_sha\": \"$HEAD_SHA\", \"need_comment\": false}"
+POST_DATA="\"{\"report\": \"$REPORT_DATA\", \"slug\": \"$SLUG\", \"pull_request\": \"$PR\", \"head_branch\": \"$HEAD_BRANCH\", \"head_sha\": \"$HEAD_SHA\", \"need_comment\": false}\""
 if [[ $TRAVIS_PULL_REQUEST != 'false' ]]; then
 curl -x POST http://borodin.dev.bmstu.cloud -d $POST_DATA;
 fi
