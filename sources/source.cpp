@@ -2,6 +2,8 @@
 
 #include <header.hpp>
 
-bool ret_true() {
-  return true;
+bool ret_true(int a) {
+  if (a > 0)
+    return true;
+  return false;
 }
