@@ -2,9 +2,11 @@
 
 set -e
 
-files=`find . -name "*.cpp" -or -name "*.hpp" -or -name ".h" | grep -v "./tools/*"`
-filter=-build/c++11,-runtime/references,-whitespace/braces,-whitespace/indent,-whitespace/comments,-build/include_order
-echo $files | xargs cpplint --filter=$filter
+readonly FILTER=-build/c++11,-runtime/references,\
+-whitespace/braces,-whitespace/indent,-whitespace/comments,-build/include_order
+
+find ./include/ ./scripts/ ./sources/ -name "*.cpp" -or -name "*.hpp" -or -name ".h" | grep -v "./tools/*"\
+| xargs cpplint --filter=$FILTER
 
 export CTEST_OUTPUT_ON_FAILURE=true
 # address sanitizer
