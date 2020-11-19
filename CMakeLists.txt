@@ -58,7 +58,7 @@ if(BUILD_COVERAGE)
   endfunction()
 
   set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
-  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+  list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/tools/CMake-codecov")
   find_package(codecov)
   # TODO: change template word to project name and delete this comment
   enable_project_coverage(template)
